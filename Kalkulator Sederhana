@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+void displayMenu();
+
+int main() {
+    int choice;
+    double num1, num2, result;
+    char again;
+
+    do {
+        
+        displayMenu();
+        cout << "Pilih operasi (1-4): ";
+        cin >> choice;
+
+        if (choice >= 1 && choice <= 4) {  
+            cout << "Masukkan angka pertama: ";
+            cin >> num1;
+            cout << "Masukkan angka kedua: ";
+            cin >> num2;
+
+            switch (choice) {
+                case 1:
+                    result = num1 + num2;
+                    cout << "Hasil penjumlahan: " << result << endl;
+                    break;
+                case 2:
+                    result = num1 - num2;
+                    cout << "Hasil pengurangan: " << result << endl;
+                    break;
+                case 3:
+                    result = num1 * num2;
+                    cout << "Hasil perkalian: " << result << endl;
+                    break;
+                case 4:
+                    if (num2 != 0) {  
+                        result = num1 / num2;
+                        cout << "Hasil pembagian: " << result << endl;
+                    } else {
+                        cout << "Error: Tidak bisa membagi dengan nol." << endl;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            cout << "Pilihan tidak valid. Silakan coba lagi." << endl;
+        }
+
+        cout << "Apakah Anda ingin melakukan operasi lain? (y/n): ";
+        cin >> again;
+
+    } while (again == 'y' || again == 'Y');
+
+    cout << "Terima kasih telah menggunakan kalkulator ini!" << endl;
+    return 0;
+}
+
+void displayMenu() {
+    cout << "\n===== KALKULATOR SEDERHANA =====" << endl;
+    cout << "1. Penjumlahan" << endl;
+    cout << "2. Pengurangan" << endl;
+    cout << "3. Perkalian" << endl;
+    cout << "4. Pembagian" << endl;
+    cout << "================================" << endl;
+}
